@@ -28,5 +28,20 @@ class MuradTaklClassifer(JSONEncoder):
       cleanDataFrame= self._cleanText(dataframe)
       result=pickle_model.predict(c_vectorizer.transform(cleanDataFrame['Clean_Text']))
       result_prob=pickle_model.predict_proba(c_vectorizer.transform(cleanDataFrame['Clean_Text']))
-      jsonString={"prediction":result.tolist(),"prediction_probability":result_prob.tolist()}
+
+      jsonString=self.parseResult(result,result_prob)
       return result, result_prob, json.dumps(jsonString)
+
+    def parseResult(self, prediction,prediction_prob):
+       result=prediction.tolist()
+       result_prob=prediction_prob.tolist()
+       predict: int = result[0]
+       taklaProb: float = round(result_prob[0][1],2)
+       nonTaklaProb: float = round(result_prob[0][0],2)
+       jsonString={"prediction":predict,
+                  "murad_takla_prob":taklaProb,
+                  "non_murad_takla_prob":nonTaklaProb}
+       return  jsonString
+
+
+
