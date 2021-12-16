@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">মুরাদ টাকলা চেকার </string>
+    <string name="checkBtn">চেক করুন</string>
+    <string name="title">আপনি কি নিশ্চিত যে আপনি মুরাদ টাকলা নন? তাহলে চেক করে নিন</string>
+    <string name="murad_takla_string">কোন সন্দেহ নাই যে আপনি মুরাদ টাকলা। মেশিন বলছে আপনি %1$.0f\%%  মুরাদ টাকলা</string>
+    <string name="non_murad_takla">আপনি মুরাদ টাকলা নন। </string>
+</resources>
